@@ -4,7 +4,7 @@ from flask import request
 
 
 class WalletModel(db.Model):
-    __tablename__ = 'dwh_wallet_customers_account_statements'
+    __tablename__ = 'wallet_clients_table'
 
     transaction_id = db.Column(db.Integer, primary_key=True)  # properties of our table
     transaction_date = db.Column(db.DateTime)

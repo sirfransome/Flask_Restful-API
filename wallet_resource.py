@@ -19,7 +19,7 @@ class WalletName(Resource):  # class resource for crud operations
         wallet = WalletModel.find_by_name(client_name)
         if wallet:
             wallet.delete_from_db()
-        return {'message': 'item successfully deleted'}
+        return {'message': 'wallet successfully deleted'}
 
 
 
@@ -37,4 +37,4 @@ class WalletAccountNumber(Resource):  # class item to retrieve all items from th
         wallet = WalletModel.find_by_accountno(account_no)
         if wallet:
             wallet.delete_from_db()
-        return {'message': 'item successfully deleted'}
+        return {'message': 'wallet successfully deleted'}

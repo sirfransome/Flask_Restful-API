@@ -7,23 +7,23 @@ class UserRegister(Resource):
     parser.add_argument('userid',
                         type=int,
                         required=True,
-                        help="Please input your userid")
+                        help="Please input your userid. This field cannot be empty")
     parser.add_argument('username',
                         type=str,
                         required=True,
-                        help="Please input your username")
+                        help="Please input your username. This field cannot be empty")
 
     parser.add_argument('password',
                         type=str,
                         required=True,
-                        help="Please input your password")
+                        help="Please input your password. This field cannot be empty")
 
     def post(self):
         data = UserRegister.parser.parse_args()
         user = UserModel.find_by_username(data['username'])
         if user:
-            return {"message": "this user already exist"}, 400
+            return {"message": "This user already exist"}, 400
         user = UserModel(**data)
         user.save_to_db()
 
-        return {"message": "user created successfully"}, 201
+        return {"message": "User created successfully"}, 201
